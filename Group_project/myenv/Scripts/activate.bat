@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Thinkpad\AppData\Local\Programs\Python\Python310\Scripts\myenv
+set VIRTUAL_ENV=C:\Users\alaed\Desktop\3YS2\Group project\Group-Project-main\Group-Project-main\Group_project\myenv
 
 if not defined PROMPT set PROMPT=$P$G
 
