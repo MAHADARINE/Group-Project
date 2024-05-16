@@ -1,0 +1,93 @@
+<div class="tab-pane fade pt-3" id="profile-change-password">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .feedback-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .feedback-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .feedback-description {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .feedback-rating {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+        .rating-excellent {
+            background-color: #5cb85c; /* Green */
+        }
+        .rating-good {
+            background-color: #f0ad4e; /* Orange */
+        }
+        .rating-average {
+            background-color: #5bc0de; /* Blue */
+        }
+        .rating-poor {
+            background-color: #d9534f; /* Red */
+        }
+    </style>
+
+    <div id="feedbackContainer"></div>
+
+</div>
+
+<script>
+    // Fetch feedback from Supabase
+    document.addEventListener('DOMContentLoaded', async () => {
+        const feedbackContainer = document.getElementById('feedbackContainer');
+        const supabase = createClient('https://dqkquwhmpmmswxcyrqem.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRxa3F1d2htcG1tc3d4Y3lycWVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3NDI3MzYsImV4cCI6MjAzMDMxODczNn0.laxhsxnF-Sbsh_FhulaODDPgFeUxKWKfWPUO20RG_tE');
+
+        // Fetch feedback from Supabase
+        const { data, error } = await supabase
+            .from('feedback')
+            .select('*');
+
+        if (error) {
+            console.error('Error fetching feedback:', error);
+        } else {
+            data.forEach(feedback => {
+                const feedbackCard = `
+                    <div class="feedback-card">
+                        <div class="feedback-title">${feedback.title}</div>
+                        <div class="feedback-description">${feedback.description}</div>
+                        <div class="feedback-rating ${getRatingClass(feedback.rating)}">${feedback.rating}</div>
+                    </div>
+                `;
+                feedbackContainer.innerHTML += feedbackCard;
+            });
+        }
+    });
+
+    // Function to determine rating class based on feedback rating
+    function getRatingClass(rating) {
+        switch (rating.toLowerCase()) {
+            case 'excellent':
+                return 'rating-excellent';
+            case 'good':
+                return 'rating-good';
+            case 'average':
+                return 'rating-average';
+            case 'poor':
+                return 'rating-poor';
+            default:
+                return '';
+        }
+    }
+</script>

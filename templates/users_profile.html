@@ -1,0 +1,767 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- Link to favicon -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+
+  <!-- Link to apple-touch-icon -->
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts - Preconnect -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+
+  <!-- Google Fonts - Open Sans, Nunito, Poppins -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/quill/quill.snow.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+  <!-- =======================================================
+    * Template Name: NiceAdmin
+    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    * Updated: Mar 17 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+        <span class="d-none d-lg-block">NiceAdmin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>Lorem Ipsum</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>30 min. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-x-circle text-danger"></i>
+              <div>
+                <h4>Atque rerum nesciunt</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>1 hr. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Sit rerum fuga</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>2 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Dicta reprehenderit</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="{{ url_for('static', filename='img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Kevin Anderson</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+      <img src="{{ url_for('static', filename='img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+      <h4>Kevin Anderson</h4>
+    </div>
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Home</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-stack"></i><span>Projects</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-elements.html">
+              <i class="bi bi-circle"></i><span>Project 1</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Project 2</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Project 3</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Project 4</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Project 5</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Project 6</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person"></i><span>Employees</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="users_profile.html">
+              <i class="bi bi-circle"></i><span>Employee 1</span>
+            </a>
+          </li>
+          <li>
+            <a href="users_profile.html">
+              <i class="bi bi-circle"></i><span>Employee 2</span>
+            </a>
+          </li>
+          <li>
+            <a href="users_profile.html">
+              <i class="bi bi-circle"></i><span>Employee 3</span>
+            </a>
+          </li>
+          <li>
+            <a href="users_profile.html">
+              <i class="bi bi-circle"></i><span>Employee 4</span>
+            </a>
+          </li>
+          <li>
+            <a href="users_profile.html">
+              <i class="bi bi-circle"></i><span>Employee 5</span>
+            </a>
+          </li>
+          <li>
+            <a href="users_profile.html">
+              <i class="bi bi-circle"></i><span>Employee 6</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact us </span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Logout</span>
+        </a>
+      </li><!-- End Logout Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Users</li>
+          <li class="breadcrumb-item active">Profile</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-4">
+
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+              <img src="{{ url_for('static', filename='img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+              <h2>Kevin Anderson</h2>
+              <h3>Web Designer</h3>
+              <div class="social-links mt-2">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+          <div class="card">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">General
+                    informations</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Current projects</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Ratings</button>
+                </li>
+
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab"
+                    data-bs-target="#profile-change-password">Feedbacks</button>
+                </li>
+
+              </ul>
+              <div class="tab-content pt-2">
+
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                  <h5 class="card-title">About</h5>
+                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque
+                    temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem
+                    eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
+
+                  <h5 class="card-title">Profile Details</h5>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Company</div>
+                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Job</div>
+                    <div class="col-lg-9 col-md-8">Web Designer</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Country</div>
+                    <div class="col-lg-9 col-md-8">USA</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Address</div>
+                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Email</div>
+                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                  </div>
+
+                </div>
+
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+
+                  <style>
+                    body {
+                      font-family: Arial, sans-serif;
+                      background-color: #f8f9fa;
+                      padding: 20px;
+                    }
+
+                    .project-card {
+                      background-color: #fff;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                      padding: 20px;
+                      margin-bottom: 20px;
+                    }
+
+                    .project-title {
+                      font-size: 24px;
+                      font-weight: bold;
+                      margin-bottom: 10px;
+                    }
+
+                    .project-description {
+                      color: #555;
+                      margin-bottom: 15px;
+                    }
+
+                    .project-meta {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      color: #777;
+                      font-size: 14px;
+                    }
+
+                    .project-meta span {
+                      display: inline-block;
+                      margin-right: 10px;
+                    }
+                  </style>
+
+
+                  <!-- Project Cards -->
+                  <div class="project-card">
+                    <div class="project-title">E-commerce Website Redesign</div>
+                    <div class="project-description">
+                      Redesigned and implemented new UI/UX for an e-commerce website.
+                    </div>
+                    <div class="project-meta">
+                      <span><strong>Status:</strong> In Progress</span>
+                      <span><strong>Start Date:</strong> March 2024</span>
+                    </div>
+                  </div>
+
+                  <div class="project-card">
+                    <div class="project-title">Mobile App Development</div>
+                    <div class="project-description">
+                      Developed a mobile app for tracking fitness goals and workouts.
+                    </div>
+                    <div class="project-meta">
+                      <span><strong>Status:</strong> Completed</span>
+                      <span><strong>Start Date:</strong> January 2024</span>
+                      <span><strong>End Date:</strong> April 2024</span>
+                    </div>
+                  </div>
+
+                  <div class="project-card">
+                    <div class="project-title">Digital Marketing Campaign</div>
+                    <div class="project-description">
+                      Designed and executed a digital marketing campaign for product launch.
+                    </div>
+                    <div class="project-meta">
+                      <span><strong>Status:</strong> Completed</span>
+                      <span><strong>Start Date:</strong> February 2024</span>
+                      <span><strong>End Date:</strong> March 2024</span>
+                    </div>
+                  </div>
+                  <!-- End Project Cards -->
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-settings">
+
+                  <!-- Performance Rating Section -->
+
+                  <style>
+                    /* Basic styling for ratings */
+                    .rating-container {
+                      margin-bottom: 20px;
+                    }
+
+                    .rating-label {
+                      font-weight: bold;
+                    }
+
+                    .rating-bar {
+                      height: 20px;
+                      background-color: rgb(205, 182, 107);
+                      border-radius: 5px;
+                      margin-bottom: 5px;
+                    }
+
+                    .chart-container {
+                      width: 400px;
+                      height: 300px;
+                      margin-top: 20px;
+                    }
+                  </style>
+
+                  <div class="rating-container">
+                    <span class="rating-label">Quality of Work:</span>
+                    <div class="rating-bar" style="width: 80%; transition: width 2s ease-in-out 0s;"></div>
+                    <span>80%</span>
+                  </div>
+
+                  <div class="rating-container">
+                    <span class="rating-label">Communication Skills:</span>
+                    <div class="rating-bar" style="width: 70%; transition: width 2s ease-in-out 0s;"></div>
+                    <span>70%</span>
+                  </div>
+
+                  <div class="rating-container">
+                    <span class="rating-label">Punctuality:</span>
+                    <div class="rating-bar" style="width: 90%; transition: width 2s ease-in-out 0s;"></div>
+                    <span>90%</span>
+                  </div>
+
+                  <div class="rating-container">
+                    <span class="rating-label">Team Collaboration:</span>
+                    <div class="rating-bar" style="width: 75%; transition: width 2s ease-in-out 0s;"></div>
+                    <span>75%</span>
+                  </div>
+                  <!-- End Performance Rating Section -->
+
+                  <!-- Pie Chart for Overall Performance Distribution -->
+                  <div class="chart-container">
+                    <canvas id="performancePieChart"></canvas>
+                  </div>
+                  <!-- End Pie Chart -->
+
+                </div>
+
+                <script>
+                  // Animate the rating bars on page load
+                  document.addEventListener('DOMContentLoaded', () => {
+                    const ratingBars = document.querySelectorAll('.rating-bar');
+                    ratingBars.forEach(bar => {
+                      const width = bar.style.width;
+                      bar.style.transition = 'width 2s ease-in-out';
+                      bar.style.width = '0%';
+                      setTimeout(() => {
+                        bar.style.width = width;
+                      }, 500);
+                    });
+
+                    // Prepare data for pie chart
+                    const categories = ['Quality of Work', 'Communication Skills', 'Punctuality', 'Team Collaboration'];
+                    const ratings = [80, 70, 90, 75]; // Ratings percentages
+
+                    // Create pie chart
+                    const ctx = document.getElementById('performancePieChart').getContext('2d');
+                    const performancePieChart = new Chart(ctx, {
+                      type: 'pie',
+                      data: {
+                        labels: categories,
+                        datasets: [{
+                          label: 'Performance Distribution',
+                          data: ratings,
+                          backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 205, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)'
+                          ],
+                          borderWidth: 1
+                        }]
+                      },
+                      options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                          legend: {
+                            position: 'top',
+                          },
+                          tooltip: {
+                            callbacks: {
+                              label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(2) + '%';
+                              }
+                            }
+                          }
+                        }
+                      }
+                    });
+                  });
+                </script>
+
+              </div>
+
+              <div class="tab-pane fade pt-3" id="profile-change-password">
+
+                <style>
+                  body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f8f9fa;
+                    padding: 20px;
+                  }
+
+                  .feedback-card {
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                    padding: 20px;
+                    margin-bottom: 20px;
+                  }
+
+                  .feedback-title {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #333;
+                    margin-bottom: 10px;
+                  }
+
+                  .feedback-description {
+                    color: #555;
+                    margin-bottom: 15px;
+                  }
+
+                  .feedback-rating {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    color: #fff;
+                    font-weight: bold;
+                  }
+
+                  .rating-excellent {
+                    background-color: #5cb85c;
+                    /* Green */
+                  }
+
+                  .rating-good {
+                    background-color: #f0ad4e;
+                    /* Orange */
+                  }
+
+                  .rating-average {
+                    background-color: #5bc0de;
+                    /* Blue */
+                  }
+
+                  .rating-poor {
+                    background-color: #d9534f;
+                    /* Red */
+                  }
+                </style>
+
+                <!-- Feedback Cards -->
+                <div class="feedback-card">
+                  <div class="feedback-title">Excellent Service!</div>
+                  <div class="feedback-description">
+                    Kevin did an outstanding job on our project. Highly recommended!
+                  </div>
+                  <div class="feedback-rating rating-excellent">Excellent</div>
+                </div>
+
+                <div class="feedback-card">
+                  <div class="feedback-title">Great Communication</div>
+                  <div class="feedback-description">
+                    Very professional and responsive throughout the project.
+                  </div>
+                  <div class="feedback-rating rating-good">Good</div>
+                </div>
+
+                <div class="feedback-card">
+                  <div class="feedback-title">Quality Work</div>
+                  <div class="feedback-description">
+                    Impressed with the attention to detail and quality of work delivered.
+                  </div>
+                  <div class="feedback-rating rating-excellent">Excellent</div>
+                </div>
+
+                <div class="feedback-card">
+                  <div class="feedback-title">Could Improve Punctuality</div>
+                  <div class="feedback-description">
+                    Delivered slightly behind schedule, but overall satisfied with the work.
+                  </div>
+                  <div class="feedback-rating rating-average">Average</div>
+                </div>
+                <!-- End Feedback Cards -->
+
+              </div>
+
+            </div><!-- End Bordered Tabs -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      © Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/chart.js/chart.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/quill/quill.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/simple-datatables/simple-datatables.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+
+
+</body>
+
+</html>
