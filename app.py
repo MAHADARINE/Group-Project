@@ -15,8 +15,11 @@ app.secret_key = 'c912f6b46e8d6e351efdb8b8a4f3ed14'  # Secret key for secure ses
 def home():
     # Check if 'username' is stored in session
     if 'username' in session:
+        projects = supabase.table("Projects").select("*").execute().data
+        employees = supabase.table("Employees").select("*").execute().data
+        
         # If logged in, render the home page with user's username
-        return render_template('index.html', username=session['username'])
+        return render_template('index.html', username=session['username'], projects=projects,employees=employees)
     else:
         # If not logged in, redirect to the login page
         return redirect(url_for('login'))
@@ -50,6 +53,24 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))  # Redirect to login page after logout
 
+@app.route('/add_project')
+def add_project():
+    # Render the add project page
+    return render_template('add_project.html')
+
+@app.route('/upload_cv')
+def upload_cv():
+    # Render the upload CV page
+    return render_template('upload_cv.html')
+@app.route('/contact')
+def contact():
+    if 'username' in session:
+        projects = supabase.table("Projects").select("*").execute().data
+        employees = supabase.table("Employees").select("*").execute().data
+        return render_template('pages-contact.html',projects=projects, employees=employees)
+    else:
+        # If not logged in, redirect to the login page
+        return redirect(url_for('login'))
 # Run the application
 if __name__ == "__main__":
     app.run(debug=True)
