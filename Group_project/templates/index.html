@@ -225,7 +225,7 @@
         <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           {% for project in projects %}
           <li>
-            <a href="{{ project.page_url }}">
+            <a href="{{ url_for('project', idProject=project.idProject) }}">
               <i class="bi bi-circle"></i><span>{{ project.ProjectName }}</span>
             </a>
           </li>
