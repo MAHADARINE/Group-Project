@@ -38,13 +38,7 @@
 
 
 
-  <!-- =======================================================
-  * Template Name: Resumary
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -54,7 +48,6 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="" class="logo d-flex align-items-center">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
         <span class="d-none d-lg-block">Resumary</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -155,13 +148,13 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="" data-bs-toggle="dropdown">
             <img src="{{ url_for('static', filename='img/profile-img.jpg') }}" alt="Profile Image">
-            <span class="d-none d-md-block dropdown-toggle ps-2">@ {{ username }}</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"> {{ username }}</span>
           </a><!-- End Profile Image Icon -->
 
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>@ {{ username }}</h6>
+              <h6> {{ username }}</h6>
               <span>Web Designer</span>
             </li>
             <li>
@@ -219,10 +212,10 @@
     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
       <img src="{{ url_for('static', filename='img/profile-img.jpg') }}" alt="Profile Image">
-      <h4>@ {{ username }}</h4>
+      <h4> {{ username }}</h4>
     </div>
 
-    
+
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
@@ -240,7 +233,7 @@
           {% for project in projects %}
           <li>
             <a href="{{ url_for('project', idProject=project.idProject) }}">
-              <i class="bi bi-circle"></i><span>{{ project.ProjectName }}</span>
+              <i class="bi bi-circle"></i><span>{{ project.projects }}</span>
             </a>
           </li>
           {% endfor %}
@@ -362,6 +355,7 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Budget</h5>
+                
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -369,6 +363,9 @@
                     </div>
                     <div class="ps-3">
                       <h6>$3,264</h6>
+                    </h6> <span class="text-success small pt-1 fw-bold">12%</span> <span
+                    class="text-muted small pt-2 ps-1">Spent</span>
+    
                     </div>
                   </div>
                 </div>
@@ -447,8 +444,8 @@
 
               </div>
             </div><!-- End Work percentage -->
-            <button
-              style="width: 50%; height: 50%; margin-left: 25%; background-color: #0a2472; color: aliceblue;">EVALUATE</button>
+            <button class="btn btn-primary"
+              style="width: 50%; height: 50%; margin-left: 25%; color: aliceblue;">EVALUATE</button>
 
 
           </div>
@@ -466,67 +463,67 @@
                   <h6>Filter</h6>
                 </li>
 
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">In 3 Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
+                <li><a class="dropdown-item" href="#">Meetings</a></li>
+                <li><a class="dropdown-item" href="#">Deadlines</a></li>
               </ul>
             </div>
 
             <div class="card-body">
-              <h5 class="card-title">Meetings & Deadlines <br><span>| This Month</span></h5>
+              <h5 class="card-title">Meetings & Deadlines <br><span>| Agenda</span></h5>
 
               <div class="activity">
+                {% for item in agenda %}
+                <div class="activity-item ">
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                  <div class="activity-content">
-                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                  <div class="d-flex align-items-center">
+                    <i class='bi bi-circle-fill activity-badge text-success'></i>
+                    <div class="activite-label">{{ item.Date }}</div>
                   </div>
-                </div><!-- End activity item-->
+                    <div class="activity-content">
+                      {{ item.Info }}
+                    </div>
+                    </div><!-- End activity item-->
+                  {% endfor %}
+                <div class="activity" style="padding-top: 5%;">
+                  <!-- Activity items here -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+                      Add New Item
+                    </button>
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">56 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
-                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
-                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                  <div class="activity-content">
-                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
-                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                  <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
-
+                    <!-- Modal -->
+                    <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="addItemModalLabel">Add New Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="/project/{{project.idProject}}/add-meeting" method="post">
+                              <input type="hidden" id="idProject" name="idProject" value="{{ project.idProject }}">
+                              <div class="mb-3">
+                                <label for="itemDate" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="itemDate" name="date">
+                              </div>
+                              <div class="mb-3">
+                                <label for="itemInfo" class="form-label">Info</label>
+                                <textarea class="form-control" id="itemInfo" name="info"></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label for="itemType" class="form-label">Type</label>
+                                <input type="text" class="form-control" id="itemType" name="type">
+                              </div>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
-
             </div>
           </div><!-- End Recent Activity -->
 
@@ -614,15 +611,9 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Resumary</span></strong>. All Rights Reserved
+      <strong><span>Resumary</span></strong> Team.
     </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
+
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
